@@ -106,12 +106,40 @@ const findGamesByQuery = async (name) => {
         return fetchapidb;
     } catch (error) {
         throw new Error(error);
-    }
-}
+    };
+};
 
-const createGame = async (name, description, released, rating, plataforms, img) => {
-    const newGame = await Videogame.create({name, description, released, rating, plataforms, img});
-    return newGame;
+const createGame = async (name, description, released, rating, genres, plataforms, img) => {
+    try {
+        let [game, boolean] = await Videogame.findOrCreate({
+            where: {
+                name: {
+                    [Op.iLike]: `%${name}%`,
+                },
+            },
+            defaults: {
+                name,
+                description,
+                released,
+                rating,
+                plataforms,
+                img,
+            }
+        });
+        if(!boolean) throw new Error(error);
+
+        let gamegen = await Genre.findAll({
+            where: {
+                name: genres,
+            }
+        });
+        
+        game.addGenre(gamegen);
+
+        return "Game created :)";
+    } catch (error) {
+        throw new Error("failed to create game")
+    }
 };
 
 module.exports = {
