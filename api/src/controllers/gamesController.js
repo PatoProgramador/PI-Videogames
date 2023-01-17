@@ -49,6 +49,7 @@ const getGames = async () => {
         return api;
     } catch (error) {
         throw new Error("Cannot get the games");
+        //jsjsajasj
     }
 };
 
