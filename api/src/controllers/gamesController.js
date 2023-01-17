@@ -49,17 +49,64 @@ const getGames = async () => {
         return api;
     } catch (error) {
         throw new Error("Cannot get the games");
-        //jsjsajasj
-    }
+    };
 };
 
 const findGamesByQuery = async (name) => {
-    const results = await Videogame.findAll({
-        where:{
-            name: { [Op.iLike]: `%${name}%`}
-        },
-    });
-    return results;
+    try {
+        let fetchapidb = [];
+        //busco los 15 resultados en la api
+        let api = await axios.get(`https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`);
+        api = api.data.results;
+        if(api.length) {
+            api = api.splice(0,15);
+            
+            api = api?.map((game) => {
+                return {
+                    id: game.id,
+                    name: game.name,
+                    genres: game.genres?.map((gen) => gen.name),
+                    plataforms: game.platfoms?.map((plat)=> plat.platform.name),
+                    released: game.released,
+                    img: game.background_image,
+                    rating: game.rating,
+                    description: game.description,
+                };
+            });
+        };
+        //ahora con la database local
+        let results = await Videogame.findAll({
+            where:{
+                name: { [Op.iLike]: `%${name}%`},
+            },
+            include: {
+                model: Genre,
+                attributes: ["name"],
+                through: {
+                    attributes: [],
+                },
+            },
+        });
+        if(results.length) {
+            results = results.map((game) => {
+                return {
+                    id: game.id,
+                    name: game.name,
+                    genres: game.genres?.map((gen) => gen.name),
+                    plataforms: game.platfoms,
+                    released: game.released,
+                    img: game.background_image,
+                    rating: game.rating,
+                    description: game.description,
+                };
+            });
+        };
+
+        fetchapidb = [...api, ...results];
+        return fetchapidb;
+    } catch (error) {
+        throw new Error(error);
+    }
 }
 
 const createGame = async (name, description, released, rating, plataforms, img) => {

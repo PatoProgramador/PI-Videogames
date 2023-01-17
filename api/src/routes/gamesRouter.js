@@ -4,7 +4,7 @@ const {createGame, getGames, findGamesByQuery} = require("../controllers/gamesCo
 const router = Router();
 
 router.get("/", async (req,res) => {
-    const {name} = req.query;
+    let {name} = req.query;
     let games;
     try {
         if (name) games = await findGamesByQuery(name);
