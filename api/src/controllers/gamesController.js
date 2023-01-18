@@ -53,14 +53,31 @@ const getGames = async () => {
 
 const findGameById = async (id) => {
     try {
-        const allGames = await getGames();
-        const filterGame = allGames.filter(game => game.id == id);
-        if (filterGame.length > 0) {
-            return filterGame;
+        if(id.includes("-")) {
+            let gamedb = Videogame.findOne({
+                where: {
+                    id: id,
+                },
+                include: Genre,
+            })
+            return gamedb;
         } else {
-            throw new Error(`cannot find the game by ID ${id}`);
-        }
+            let apigame = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
+            apigame = apigame.data;
+            const gamefind = {
+                id: apigame.id,
+                name: apigame.name,
+                genres: apigame.genres?.map((gen) => gen.name),
+                plataforms: apigame.platfoms,
+                released: apigame.released,
+                img: apigame.background_image,
+                rating: apigame.rating,
+                description: apigame.description,
+            }
+            return gamefind;
+        };
     } catch (error) {
+        if(error == "AxiosError: Request failed with status code 404") throw new Error(`this game by id:${id} doesn't exist`);
         throw new Error(error);
     }
 };
