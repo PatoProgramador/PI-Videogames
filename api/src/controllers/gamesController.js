@@ -45,11 +45,24 @@ const getGames = async () => {
             };
         });
 
-        api = [...api, ...gamesdb];
-        return api;
+        return [...api, ...gamesdb];
     } catch (error) {
         throw new Error("Cannot get the games");
     };
+};
+
+const findGameById = async (id) => {
+    try {
+        const allGames = await getGames();
+        const filterGame = allGames.filter(game => game.id == id);
+        if (filterGame.length > 0) {
+            return filterGame;
+        } else {
+            throw new Error(`cannot find the game by ID ${id}`);
+        }
+    } catch (error) {
+        throw new Error(error);
+    }
 };
 
 const findGamesByQuery = async (name) => {
@@ -145,5 +158,6 @@ const createGame = async (name, description, released, rating, genres, plataform
 module.exports = {
     createGame,
     getGames,
-    findGamesByQuery
+    findGamesByQuery,
+    findGameById
 }

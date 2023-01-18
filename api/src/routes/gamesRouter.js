@@ -15,6 +15,8 @@ router.get("/", async (req,res) => {
     }
 });
 
+
+
 router.post("/", async (req, res) => {
     try {
         const { name, description, released, rating, genres, plataforms, img} = req.body;
