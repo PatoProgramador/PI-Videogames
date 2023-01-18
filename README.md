@@ -100,8 +100,8 @@ __IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estil
 
 - [ ] React
 - [ ] Redux
-- [ ] Express
-- [ ] Sequelize - Postgres
+- [x] Express
+- [x] Sequelize - Postgres
 
 ## Frontend
 
