@@ -23,8 +23,6 @@ const getGenres = async () => {
     } catch (error) {
         throw new Error(error)
     }
-    //probando git
-    //probando git de nuev
 };
 
 module.exports = {getGenres};
