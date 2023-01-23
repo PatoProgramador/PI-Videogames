@@ -1,5 +1,7 @@
 const {Router} = require("express");
 const {createGame, getGames, findGamesByQuery} = require("../controllers/gamesController");
+const {getGenres} = require("../controllers/genresController.js");
+const {Genre} = require("../db");
 
 const router = Router();
 
@@ -19,9 +21,17 @@ router.get("/", async (req,res) => {
 
 router.post("/", async (req, res) => {
     try {
-        const { name, description, released, rating, genres, plataforms, img} = req.body;
-        const newGame = await createGame(name, description, released, rating, genres, plataforms, img);
-        res.status(200).json(newGame);
+        const genresd = await getGenres();
+        const { name, description, released, rating, genres, platforms, img} = req.body;
+        const newGame = await createGame(name, description, released, rating, platforms, img);
+        let genresdb = await Genre.findAll({
+            where: {
+                name: genres,
+            },
+        });
+        console.log(genresdb)
+        newGame.addGenre(genresdb);
+        res.status(200).send("Game created");
     } catch(error) {
         res.status(400).json({error: error.message});
     }

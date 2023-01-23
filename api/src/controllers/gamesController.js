@@ -17,7 +17,7 @@ const getGames = async () => {
                 id: game.id,
                 name: game.name,
                 genres: game.genres?.map((gen) => gen.name),
-                plataforms: game.platfoms?.map((plat)=> plat.platform.name),
+                platforms: game.platforms?.map((plat)=> plat.platform.name),
                 released: game.released,
                 img: game.background_image,
                 rating: game.rating,
@@ -37,7 +37,7 @@ const getGames = async () => {
                 id: game.id,
                 name: game.name,
                 genres: game.genres?.map((gen) => gen.name),
-                plataforms: game.platfoms,
+                platforms: game.platfoms,
                 released: game.released,
                 img: game.background_image,
                 rating: game.rating,
@@ -68,7 +68,7 @@ const findGameById = async (id) => {
                 id: apigame.id,
                 name: apigame.name,
                 genres: apigame.genres?.map((gen) => gen.name),
-                plataforms: apigame.platfoms,
+                platforms: apigame.platfoms,
                 released: apigame.released,
                 img: apigame.background_image,
                 rating: apigame.rating,
@@ -96,7 +96,7 @@ const findGamesByQuery = async (name) => {
                     id: game.id,
                     name: game.name,
                     genres: game.genres?.map((gen) => gen.name),
-                    plataforms: game.platfoms?.map((plat)=> plat.platform.name),
+                    platforms: game.platfoms?.map((plat)=> plat.platform.name),
                     released: game.released,
                     img: game.background_image,
                     rating: game.rating,
@@ -123,7 +123,7 @@ const findGamesByQuery = async (name) => {
                     id: game.id,
                     name: game.name,
                     genres: game.genres?.map((gen) => gen.name),
-                    plataforms: game.platfoms,
+                    platforms: game.platfoms,
                     released: game.released,
                     img: game.background_image,
                     rating: game.rating,
@@ -139,7 +139,7 @@ const findGamesByQuery = async (name) => {
     };
 };
 
-const createGame = async (name, description, released, rating, genres, plataforms, img) => {
+const createGame = async (name, description, released, rating, platforms, img) => {
     try {
         let [game, boolean] = await Videogame.findOrCreate({
             where: {
@@ -152,21 +152,13 @@ const createGame = async (name, description, released, rating, genres, plataform
                 description,
                 released,
                 rating,
-                plataforms,
+                platforms,
                 img,
             }
         });
         if(!boolean) throw new Error(error);
 
-        let gamegen = await Genre.findAll({
-            where: {
-                name: genres,
-            }
-        });
-        
-        game.addGenre(gamegen);
-
-        return "Game created :)";
+        return game;
     } catch (error) {
         throw new Error("failed to create game")
     }
