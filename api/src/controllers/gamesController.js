@@ -37,7 +37,7 @@ const getGames = async () => {
                 id: game.id,
                 name: game.name,
                 genres: game.genres?.map((gen) => gen.name),
-                platforms: game.platfoms,
+                platforms: game.platforms,
                 released: game.released,
                 img: game.background_image,
                 rating: game.rating,
@@ -160,7 +160,7 @@ const createGame = async (name, description, released, rating, platforms, img) =
 
         return game;
     } catch (error) {
-        throw new Error("failed to create game")
+        throw new Error(error);
     }
 };
 
