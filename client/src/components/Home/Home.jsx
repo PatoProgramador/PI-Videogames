@@ -1,6 +1,9 @@
+import NavBar from "../NavBar/NavBar";
+
 const Home =() => {
     return (
         <>
+            <NavBar/>
             <h1>Home page</h1>
         </>
     )
