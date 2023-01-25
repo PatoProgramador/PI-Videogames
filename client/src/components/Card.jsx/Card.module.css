@@ -1,0 +1,15 @@
+.container{
+    width: 340px;
+    padding: 1.2rem 0;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.img {
+    border-radius: 8px;
+    width: 310px;
+    height: 187px;
+    object-fit: cover;
+}
