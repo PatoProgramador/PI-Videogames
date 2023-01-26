@@ -15,7 +15,7 @@ const Home =() => {
     }, [dispatch]);
     //paginacion
     const [page, setPage] = useState(1);
-    const [perPage, setPerPage] = useState(15);
+    const [perPage] = useState(15);
 
     const max = videogames.length / perPage;
 

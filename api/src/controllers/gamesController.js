@@ -133,6 +133,8 @@ const findGamesByQuery = async (name) => {
         };
 
         fetchapidb = [...api, ...results];
+
+        if(fetchapidb.length == 0) throw new Error("Could not find the game")
         return fetchapidb;
     } catch (error) {
         throw new Error(error);

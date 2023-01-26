@@ -1,4 +1,4 @@
-import { GET_VIDEOGAMES } from "./actions";
+import { GET_VIDEOGAMES, SEARCH } from "./actions";
 
 const initialState = {
     videoGames: [],
@@ -9,6 +9,11 @@ const initialState = {
 const rootReducer = (state = initialState, action) => {
     switch(action.type) {
         case GET_VIDEOGAMES:
+            return {
+                ...state,
+                videoGames: action.payload,
+            };
+        case SEARCH:
             return {
                 ...state,
                 videoGames: action.payload,
