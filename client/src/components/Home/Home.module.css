@@ -1,5 +1,10 @@
 .gridContainer {
-    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: center;
+    padding-top: 4%;
+    gap: 20px;
 }
 
 .grid {

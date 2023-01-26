@@ -1,24 +1,32 @@
 import s from "./Home.module.css"
-import { useEffect } from "react";
+import { useEffect, useState} from "react";
 import NavBar from "../NavBar/NavBar";
 import {useDispatch, useSelector} from "react-redux";
 import { getVideogames } from "../../redux/actions";
 import Card from "../Card.jsx/Card";
+import { Paginacion } from "../Paginacion/Paginacion";
 
 const Home =() => {
+    //traer todos los videojuegos
     const dispatch = useDispatch();
     const videogames = useSelector(state => state.videoGames);
     useEffect(()=> {
         if(!videogames.length) dispatch(getVideogames());
     }, [dispatch]);
+    //paginacion
+    const [page, setPage] = useState(1);
+    const [perPage, setPerPage] = useState(15);
+
+    const max = videogames.length / perPage;
+
     return (
         <>
             <NavBar/>
-            <h1>Home page</h1>
             <div className={s.gridContainer}>
                 <div className={s.grid}>
                     {
-                        videogames?.map(game => {
+                        videogames?.slice((page - 1) * perPage, (page-1) * perPage + perPage)
+                        .map(game => {
                             return(
                                 <Card 
                                     name={game.name}
@@ -31,6 +39,7 @@ const Home =() => {
                         })
                     }
                 </div>
+                <Paginacion page={page} setPage={setPage} max={max}/>
             </div>
         </>
     )
