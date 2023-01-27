@@ -5,7 +5,8 @@ import { GET_VIDEOGAMES,
          GET_BY_RATING,
          GET_BY_ALP, 
          GET_GENRES,
-         GET_BY_GENRE
+         GET_BY_GENRE,
+         GET_BY_DB
         } from "./actions";
 
 const initialState = {
@@ -63,11 +64,13 @@ const rootReducer = (state = initialState, action) => {
                 sortGames: gamesFilt,
                 error: err ? !state.error : state.error
             }
-
+        case GET_BY_DB:
+            const db = state.videoGames.filter(game => game.id.toString().includes("-"));
+            const api = state.videoGames.filter(game => !game.id.toString().includes("-"))
         case SEARCH:
             return {
                 ...state,
-                videoGames: action.payload,
+                sortGames: action.payload,
             };
         case CLOSE_ERROR:
             return {
