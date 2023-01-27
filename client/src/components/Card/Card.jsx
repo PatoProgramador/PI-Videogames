@@ -4,8 +4,14 @@ const Card = ({name, img, genres, id}) => {
     return(
         <div className={s.container}>
             <img className={s.img} src={img} alt={name} />
-            <p>Nombre: {name}</p>
-            <p>Generos: {genres}</p>
+            <h3>{name}</h3>
+            <div>
+                {
+                    genres.length > 5 ?
+                    genres?.slice(0, 5).map((genre) => (<div><span>{genre}</span></div>))
+                    : genres?.map((genre) => (<div><span>{genre}</span></div>))
+                }
+            </div>
         </div>
     )
 };
