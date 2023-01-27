@@ -1,4 +1,10 @@
-import { GET_VIDEOGAMES, SEARCH, ERROR, CLOSE_ERROR, GET_BY_RATING } from "./actions";
+import { GET_VIDEOGAMES,
+         SEARCH,
+         ERROR,
+         CLOSE_ERROR,
+         GET_BY_RATING,
+         GET_BY_ALP 
+        } from "./actions";
 
 const initialState = {
     videoGames: [],
@@ -18,15 +24,32 @@ const rootReducer = (state = initialState, action) => {
                 sortGames: g
             };
         case GET_BY_RATING:
-            let gamesSorted = action.payload === "higer"
-                            ? state.videoGames.sort((a, b) => b.rating - a.rating)
-                            : action.payload === "lower"
-                            ? state.videoGames.sort((a,b) => a.rating - b.rating)
-                            : [...state.videoGames];
+            const gamesSorted = action.payload === "higer"
+                              ? state.videoGames.sort((a, b) => b.rating - a.rating)
+                              : action.payload === "lower"
+                              ? state.videoGames.sort((a,b) => a.rating - b.rating)
+                              : [...state.videoGames];
             return {
                 ...state,
                 sortGames: gamesSorted
             };
+        case GET_BY_ALP:
+            const sortByAlp = action.payload === "asc"
+                              ? state.sortGames.sort((a,b) => {if(a.name > b.name) return 1;
+                                                                if(a.name < b.name) return -1;
+                                                                return 0;
+                                                               })
+                              : action.payload === "desc"
+                              ? state.sortGames.sort((a,b) => {if(a.name > b.name) return -1;
+                                                                if(a.name < b.name) return 1;
+                                                                return 0;
+                                                               })
+                              : [...state.videoGames];
+            return {
+                ...state,
+                sortGames: sortByAlp
+            }
+
         case SEARCH:
             return {
                 ...state,

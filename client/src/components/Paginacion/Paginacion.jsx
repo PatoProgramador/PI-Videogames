@@ -1,5 +1,4 @@
 import s from "./Paginacion.module.css"
-import {useState} from 'react'
 
 export const Paginacion = ({page, setPage, input, setInput, max}) => {
     const nextPage = () => {

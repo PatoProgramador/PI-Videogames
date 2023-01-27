@@ -36,7 +36,7 @@ const Home =() => {
                 <div>
                     {error && <Errors/>}
                     <NavBar/>
-                    <Filter sort={sort} setSort={setSort} setInput={setInput} />
+                    <Filter sort={sort} setSort={setSort} setInput={setInput} setPage={setPage} />
                     <div className={s.gridContainer}>
                         <div className={s.grid}>
                             {
