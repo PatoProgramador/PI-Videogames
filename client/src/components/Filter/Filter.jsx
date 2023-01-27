@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getByGenre, getDbGames, getVideogamesByAlp, getVideogamesByRate } from "../../redux/actions";
+import { getByGenre, getDbGames, getVideogamesByAlp, getVideogamesByRate, resetFilters } from "../../redux/actions";
 
 const Filter = ({sort, setSort, setInput, setPage}) => {
     const dispatch = useDispatch();
@@ -31,6 +31,12 @@ const Filter = ({sort, setSort, setInput, setPage}) => {
         setPage(1)
     };
 
+    const handleReset = () => {
+        dispatch(resetFilters())
+        setInput(1)
+        setPage(1)
+    }
+
     return (
         <div>
             <div>
@@ -59,9 +65,13 @@ const Filter = ({sort, setSort, setInput, setPage}) => {
             <div>
                 <label>Created</label>
                 <select name="created" id="created" onChange={handleCreated}>
+                    <option value="all">ALL</option>
                     <option value="api">API</option>
                     <option value="db">CREATED</option>
                 </select>
+            </div>
+            <div>
+                <button onClick={handleReset}>RESET FILTERS</button>
             </div>
         </div>
     )

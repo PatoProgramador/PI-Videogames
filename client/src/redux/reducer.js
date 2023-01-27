@@ -6,7 +6,8 @@ import { GET_VIDEOGAMES,
          GET_BY_ALP, 
          GET_GENRES,
          GET_BY_GENRE,
-         GET_BY_DB
+         GET_BY_DB,
+         RESET_FILTERS
         } from "./actions";
 
 const initialState = {
@@ -78,6 +79,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 sortGames: action.payload,
+            };
+        case RESET_FILTERS:
+            return {
+                ...state,
+                sortGames: state.videoGames
             };
         case CLOSE_ERROR:
             return {

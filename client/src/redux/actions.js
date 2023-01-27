@@ -8,6 +8,7 @@ export const GET_BY_DB = "GET_BY_DB";
 export const SEARCH = "SEARCH";
 export const ERROR = "ERROR";
 export const CLOSE_ERROR = "CLOSE_ERROR";
+export const RESET_FILTERS = "RESET_FILTERS";
 
 export const getVideogames = () => async dispatch => {
     try {
@@ -50,6 +51,10 @@ export const getByGenre = (genre) => dispatch => {
 
 export const getDbGames = (value) => dispatch => {
     return dispatch({type: GET_BY_DB, payload: value })
+};
+
+export const resetFilters = () => dispatch => {
+    return dispatch({type: RESET_FILTERS})
 };
 
 export const closeError = () => dispatch =>{
