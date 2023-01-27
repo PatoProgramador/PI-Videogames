@@ -119,7 +119,7 @@ __Ruta principal__: debe contener
   - Imagen
   - Nombre
   - Géneros
-- [ ] Botones/Opciones para filtrar por género y por videojuego existente o agregado por nosotros
+- [x] Botones/Opciones para filtrar por género y por videojuego existente o agregado por nosotros
 - [x] Botones/Opciones para ordenar tanto ascendentemente como descendentemente los videojuegos por orden alfabético y por rating
 - [x] Paginado para ir buscando y mostrando los siguientes videojuegos, 15 juegos por pagina, mostrando los primeros 15 en la primer pagina.
 
