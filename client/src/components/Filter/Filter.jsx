@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getByGenre, getVideogamesByAlp, getVideogamesByRate } from "../../redux/actions";
+import { getByGenre, getDbGames, getVideogamesByAlp, getVideogamesByRate } from "../../redux/actions";
 
 const Filter = ({sort, setSort, setInput, setPage}) => {
     const dispatch = useDispatch();
@@ -21,6 +21,12 @@ const Filter = ({sort, setSort, setInput, setPage}) => {
 
     const handleGenres = (e) => {
         dispatch(getByGenre(e.target.value))
+        setInput(1)
+        setPage(1)
+    };
+
+    const handleCreated = (e) => {
+        dispatch(getDbGames(e.target.value))
         setInput(1)
         setPage(1)
     };
@@ -48,6 +54,13 @@ const Filter = ({sort, setSort, setInput, setPage}) => {
                 <select name="Genres" id="Genres" onChange={handleGenres}>
                     <option>genres</option>
                     {genr?.map((gen, i) => <option key={i} value={gen.name}>{gen.name}</option>)}
+                </select>
+            </div>
+            <div>
+                <label>Created</label>
+                <select name="created" id="created" onChange={handleCreated}>
+                    <option value="api">API</option>
+                    <option value="db">CREATED</option>
                 </select>
             </div>
         </div>

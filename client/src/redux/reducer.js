@@ -65,8 +65,15 @@ const rootReducer = (state = initialState, action) => {
                 error: err ? !state.error : state.error
             }
         case GET_BY_DB:
-            const db = state.videoGames.filter(game => game.id.toString().includes("-"));
-            const api = state.videoGames.filter(game => !game.id.toString().includes("-"))
+            const dbOApi = action.payload === "db" 
+                           ? state.videoGames.filter(game => game.id.toString().includes("-"))
+                           : action.payload === "api"
+                           ? state.videoGames.filter(game => !game.id.toString().includes("-"))
+                           : [...state.videoGames];
+            return {
+                ...state,
+                sortGames: dbOApi
+            };
         case SEARCH:
             return {
                 ...state,
