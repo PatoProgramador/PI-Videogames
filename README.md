@@ -114,8 +114,8 @@ __Pagina inicial__: deben armar una landing page con
 
 __Ruta principal__: debe contener
 
-- [ ] Input de búsqueda para encontrar videojuegos por nombre
-- [ ] Área donde se verá el listado de videojuegos. Deberá mostrar su:
+- [x] Input de búsqueda para encontrar videojuegos por nombre
+- [x] Área donde se verá el listado de videojuegos. Deberá mostrar su:
   - Imagen
   - Nombre
   - Géneros
