@@ -57,7 +57,7 @@ const rootReducer = (state = initialState, action) => {
                 genres: action.payload
             }
         case GET_BY_GENRE:
-            let gamesFilt = state.videoGames.filter(game => game.genres.includes(action.payload));
+            let gamesFilt = state.sortGames.filter(game => game.genres.includes(action.payload));
             let err = !gamesFilt.length
             return {
                 ...state,
