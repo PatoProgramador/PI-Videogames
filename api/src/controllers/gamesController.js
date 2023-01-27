@@ -54,12 +54,24 @@ const getGames = async () => {
 const findGameById = async (id) => {
     try {
         if(id.includes("-")) {
-            let gamedb = Videogame.findOne({
+            let db = await Videogame.findOne({
                 where: {
-                    id: id,
+                  id: id,
                 },
-                include: Genre,
-            })
+                include: [Genre],
+              });
+              
+              const gamedb = {
+                id: db.dataValues.id,
+                name: db.dataValues.name,
+                genres: db.dataValues.genres?.map((gen) => gen.name),
+                platforms: db.dataValues.platforms,
+                released: db.dataValues.released,
+                img: db.dataValues.img,
+                rating: db.dataValues.rating,
+                description: db.dataValues.description,
+            }
+
             return gamedb;
         } else {
             let apigame = await axios.get(`https://api.rawg.io/api/games/${id}?key=${API_KEY}`);
@@ -68,7 +80,7 @@ const findGameById = async (id) => {
                 id: apigame.id,
                 name: apigame.name,
                 genres: apigame.genres?.map((gen) => gen.name),
-                platforms: apigame.platfoms,
+                platforms: apigame.platforms?.map(plat => plat.platform.name),
                 released: apigame.released,
                 img: apigame.background_image,
                 rating: apigame.rating,
