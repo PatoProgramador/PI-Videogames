@@ -51,6 +51,7 @@ const Home =() => {
                                                 img={game.img}
                                                 rate={game.rating}
                                                 genres={game.genres}
+                                                key={game.id}
                                                 id={game.id}
                                             />
                                         </div>
