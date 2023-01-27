@@ -1,5 +1,6 @@
 import axios from "axios";
 export const GET_VIDEOGAMES = "GET_VIDEOGAMES";
+export const GET_BY_RATING = "GET_BY_RATING";
 export const SEARCH = "SEARCH";
 export const ERROR = "ERROR";
 export const CLOSE_ERROR = "CLOSE_ERROR";
@@ -20,6 +21,10 @@ export const getVideogamesByName = (name) => async dispatch => {
     } catch(error) {
         return dispatch({type: ERROR, payload: error});
     };
+};
+
+export const getVideogamesByRate = (rate) => dispatch => {
+    return dispatch({type: GET_BY_RATING, payload: rate})
 };
 
 export const closeError = () => dispatch =>{

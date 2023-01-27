@@ -1,10 +1,11 @@
 import s from './Card.module.css';
 
-const Card = ({name, img, genres, id}) => {
+const Card = ({name, img, genres, id, rate}) => {
     return(
         <div className={s.container}>
             <img className={s.img} src={img} alt={name} />
             <h3>{name}</h3>
+            <h1>{rate}</h1>
             <div>
                 {
                     genres.length > 5 ?
