@@ -1,7 +1,6 @@
 .container {
     width: 100vw;
     height: 100vh;
-    background-color: #0a0f176c;
     position: fixed;
     display: flex;
     align-items: center;
@@ -13,7 +12,5 @@
 .errorCard {
     border-radius: 15px;
     width: 600px;
-    background-color: #0a0f17;
-    box-shadow: #64646f33 0 7px 29px 0;
     padding: 10px 25px 20px 25px;
 }
