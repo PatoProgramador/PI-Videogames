@@ -21,7 +21,6 @@ const Filter = ({sort, setSort, setInput, setPage}) => {
 
     const handleGenres = (e) => {
         dispatch(getByGenre(e.target.value))
-        setSort(!sort)
         setInput(1)
         setPage(1)
     };

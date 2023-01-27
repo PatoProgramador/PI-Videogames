@@ -26,9 +26,9 @@ const rootReducer = (state = initialState, action) => {
             };
         case GET_BY_RATING:
             const gamesSorted = action.payload === "higer"
-                              ? state.videoGames.sort((a, b) => b.rating - a.rating)
+                              ? state.sortGames.sort((a, b) => b.rating - a.rating)
                               : action.payload === "lower"
-                              ? state.videoGames.sort((a,b) => a.rating - b.rating)
+                              ? state.sortGames.sort((a,b) => a.rating - b.rating)
                               : [...state.videoGames];
             return {
                 ...state,
