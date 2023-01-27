@@ -3,13 +3,14 @@ import { GET_VIDEOGAMES,
          ERROR,
          CLOSE_ERROR,
          GET_BY_RATING,
-         GET_BY_ALP 
+         GET_BY_ALP, 
+         GET_GENRES,
+         GET_BY_GENRE
         } from "./actions";
 
 const initialState = {
     videoGames: [],
     sortGames: [],
-    detail: {},
     genres: [],
     error: false,
 };
@@ -48,6 +49,19 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 sortGames: sortByAlp
+            }
+        case GET_GENRES:
+            return {
+                ...state,
+                genres: action.payload
+            }
+        case GET_BY_GENRE:
+            let gamesFilt = state.videoGames.filter(game => game.genres.includes(action.payload));
+            let err = !gamesFilt.length
+            return {
+                ...state,
+                sortGames: gamesFilt,
+                error: err ? !state.error : state.error
             }
 
         case SEARCH:

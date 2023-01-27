@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-import { getVideogamesByAlp, getVideogamesByRate } from "../../redux/actions";
+import { getByGenre, getVideogamesByAlp, getVideogamesByRate } from "../../redux/actions";
 
 const Filter = ({sort, setSort, setInput, setPage}) => {
     const dispatch = useDispatch();
+    const genr = useSelector(state => state.genres)
 
     const handleRating = (e) => {
         dispatch(getVideogamesByRate(e.target.value))
@@ -13,6 +14,13 @@ const Filter = ({sort, setSort, setInput, setPage}) => {
 
     const handleAlp = (e) => {
         dispatch(getVideogamesByAlp(e.target.value))
+        setSort(!sort)
+        setInput(1)
+        setPage(1)
+    };
+
+    const handleGenres = (e) => {
+        dispatch(getByGenre(e.target.value))
         setSort(!sort)
         setInput(1)
         setPage(1)
@@ -34,6 +42,13 @@ const Filter = ({sort, setSort, setInput, setPage}) => {
                     <option value="rating">-</option>
                     <option value="higer">major to minor</option>
                     <option value="lower">minor to major</option>
+                </select>
+            </div>
+            <div>
+                <label>Genres</label>
+                <select name="Genres" id="Genres" onChange={handleGenres}>
+                    <option>genres</option>
+                    {genr?.map((gen, i) => <option key={i} value={gen.name}>{gen.name}</option>)}
                 </select>
             </div>
         </div>

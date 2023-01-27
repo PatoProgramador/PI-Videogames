@@ -2,7 +2,7 @@ import s from "./Home.module.css"
 import { useEffect, useState} from "react";
 import NavBar from "../NavBar/NavBar";
 import {useDispatch, useSelector} from "react-redux";
-import { getVideogames } from "../../redux/actions";
+import { getGenres, getVideogames } from "../../redux/actions";
 import Card from "../Card/Card";
 import { Paginacion } from "../Paginacion/Paginacion";
 import Loading from "../Loading/Loading";
@@ -10,14 +10,16 @@ import Errors from "../Error/Error";
 import Filter from "../Filter/Filter"
 
 const Home =() => {
-    //traer todos los videojuegos
+    //traer todos los videojuegos y generos
     const dispatch = useDispatch();
     const videogames = useSelector(state => state.sortGames);
+    const genres = useSelector(state => state.genres)
     const error = useSelector(state => state.error);
 
     useEffect(()=> {
         if(!videogames.length) dispatch(getVideogames());
-    }, [dispatch, videogames]);
+        if(!genres.length) dispatch(getGenres())
+    }, [dispatch, videogames, genres]);
 
     //filtrado
     const [sort, setSort] = useState(true);
