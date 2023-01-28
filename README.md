@@ -127,11 +127,11 @@ __IMPORTANTE__: Dentro de la Ruta Principal se deben mostrar tanto los videjuego
 
 __Ruta de detalle de videojuego__: debe contener
 
-- [ ] Los campos mostrados en la ruta principal para cada videojuegos (imagen, nombre, y géneros)
-- [ ] Descripción
-- [ ] Fecha de lanzamiento
-- [ ] Rating
-- [ ] Plataformas
+- [x] Los campos mostrados en la ruta principal para cada videojuegos (imagen, nombre, y géneros)
+- [x] Descripción
+- [x] Fecha de lanzamiento
+- [x] Rating
+- [x] Plataformas
 
 __Ruta de creación de videojuegos__: debe contener
 
