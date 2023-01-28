@@ -9,6 +9,7 @@ export const SEARCH = "SEARCH";
 export const ERROR = "ERROR";
 export const CLOSE_ERROR = "CLOSE_ERROR";
 export const RESET_FILTERS = "RESET_FILTERS";
+export const GET_PLATFORMS = "GET_PLATFORMS";
 
 export const getVideogames = () => async dispatch => {
     try {
@@ -28,18 +29,24 @@ export const getVideogamesByName = (name) => async dispatch => {
     };
 };
 
+export const getGenres = () => async dispatch => {
+    let result = await axios.get("http://localhost:3001/genres");
+    return dispatch({type: GET_GENRES, payload: result.data});
+};
+
+export const getPlatforms = () => async dispatch => {
+    let result = await axios.get("http://localhost:3001/platforms");
+    return dispatch({type: GET_PLATFORMS, payload: result.data});
+};
+
 export const getVideogamesByRate = (rate) => dispatch => {
-    return dispatch({type: GET_BY_RATING, payload: rate})
+    return dispatch({type: GET_BY_RATING, payload: rate});
 };
 
 export const getVideogamesByAlp = (alp) => dispatch => {
-    return dispatch({type:GET_BY_ALP, payload: alp})
+    return dispatch({type:GET_BY_ALP, payload: alp});
 };
 
-export const getGenres = () => async dispatch => {
-    let result = await axios.get("http://localhost:3001/genres");
-    return dispatch({type: GET_GENRES, payload: result.data})
-};
 
 export const getByGenre = (genre) => dispatch => {
     try {
@@ -50,13 +57,13 @@ export const getByGenre = (genre) => dispatch => {
 };
 
 export const getDbGames = (value) => dispatch => {
-    return dispatch({type: GET_BY_DB, payload: value })
+    return dispatch({type: GET_BY_DB, payload: value });
 };
 
 export const resetFilters = () => dispatch => {
-    return dispatch({type: RESET_FILTERS})
+    return dispatch({type: RESET_FILTERS});
 };
 
 export const closeError = () => dispatch =>{
-    return dispatch({type: CLOSE_ERROR})
+    return dispatch({type: CLOSE_ERROR});
 }; 

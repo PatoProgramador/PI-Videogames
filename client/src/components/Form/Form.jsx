@@ -1,26 +1,23 @@
+import axios from "axios";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {Link} from 'react-router-dom'
-import { getGenres, getVideogames } from "../../redux/actions";
+import { getGenres, getPlatforms} from "../../redux/actions";
 
 const Form = () => {
     const dispatch = useDispatch();
+
+    //trayendo Genres y platforms
     const genres = useSelector((state) => state.genres);
+    const platform = useSelector((state) => state.platforms);
 
     useEffect(() => {
-        dispatch(getVideogames())
+        dispatch(getPlatforms())
         dispatch(getGenres())
     }, [dispatch])
 
-    //sacando plataformas
-    let games = useSelector((state) => state.videoGames);
-    let platf = games.map((game) => game.platforms);
-    platf = platf.filter((pla, i) => {
-        return platf.indexOf(pla) === i;
-    })
-
     //formulario
-    const [form, setForm] = useState({
+    const [game, setGame] = useState({
         name: "",
         released: "",
         description: "",
@@ -31,10 +28,14 @@ const Form = () => {
     });
 
     const handleInput = (e) => {
-        setForm({
-            ...form,
+        setGame({
+            ...game,
             [e.target.name]: e.target.value,
         })
+    };
+
+    const handleCreate = () => {
+        axios.post("")
     };
 
     return (
@@ -43,44 +44,47 @@ const Form = () => {
                 <button>{"<"}</button>
             </Link>
             <h2>Create Videogame</h2>
-            <label>Name</label>
-            <input 
-                type="text" 
-                name="name"
-                onChange={handleInput}
-            />
-            <label>Desciption</label>
-            <input 
-                type="text"
-                name="description"
-                onChange={handleInput}
-            />
-            <label>Released</label>
-            <input 
-                type="text"
-                name="released"
-                onChange={handleInput}
-            />
-            <label>Rating</label>
-            <input 
-                type="text"
-                name="rating"
-                onChange={handleInput}
-            />
-            <label>Image</label>
-            <input 
-                type="text" 
-                name="img"
-                onChange={handleInput}
-            />
-            <select name="platforms" onChange={handleInput}>
-                <option value="platforms">Platforms</option>
-                {platf?.map((pla, i) => {return(<option key={i}>{pla}</option>)})}
-            </select>
-            <select name="genres" onChange={handleInput}>
-                {genres?.map((genre, i) => {return(<option key={i}>{genre.name}</option>)})}
-            </select>
-            <button >CREATE</button>
+            <form action="">
+                <label>Name</label>
+                <input 
+                    type="text" 
+                    name="name"
+                    onChange={handleInput}
+                />
+                <label>Desciption</label>
+                <input 
+                    type="text"
+                    name="description"
+                    onChange={handleInput}
+                />
+                <label>Released</label>
+                <input 
+                    type="text"
+                    name="released"
+                    onChange={handleInput}
+                />
+                <label>Rating</label>
+                <input 
+                    type="text"
+                    name="rating"
+                    onChange={handleInput}
+                />
+                <label>Image</label>
+                <input 
+                    type="text" 
+                    name="img"
+                    onChange={handleInput}
+                />
+                <select name="platforms" onChange={handleInput}>
+                    <option value="platforms">Platforms</option>
+                    {platform?.map((pla, i) => {return(<option key={i}>{pla.name}</option>)})}
+                </select>
+                <select name="genres" onChange={handleInput}>
+                    <option value="genres">genres</option>
+                    {genres?.map((genre, i) => {return(<option key={i}>{genre.name}</option>)})}
+                </select>
+                <button type="submit">CREATE</button>
+            </form>
         </div>
     )
 };
