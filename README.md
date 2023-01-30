@@ -98,8 +98,8 @@ __IMPORTANTE__: No se permitirá utilizar librerías externas para aplicar estil
 
 #### Tecnologías necesarias
 
-- [ ] React
-- [ ] Redux
+- [x] React
+- [x] Redux
 - [x] Express
 - [x] Sequelize - Postgres
 
@@ -109,7 +109,7 @@ Se debe desarrollar una aplicación de React/Redux que contenga las siguientes p
 
 __Pagina inicial__: deben armar una landing page con
 
-- [ ] Alguna imagen de fondo representativa al proyecto
+- [x] Alguna imagen de fondo representativa al proyecto
 - [x] Botón para ingresar al home (`Ruta principal`)
 
 __Ruta principal__: debe contener
@@ -135,14 +135,14 @@ __Ruta de detalle de videojuego__: debe contener
 
 __Ruta de creación de videojuegos__: debe contener
 
-- [ ] Un formulario __controlado con JavaScript__ con los siguientes campos:
+- [x] Un formulario __controlado con JavaScript__ con los siguientes campos:
   - Nombre
   - Descripción
   - Fecha de lanzamiento
   - Rating
-- [ ] Posibilidad de seleccionar/agregar varios géneros
-- [ ] Posibilidad de seleccionar/agregar varias plataformas
-- [ ] Botón/Opción para crear un nuevo videojuego
+- [x] Posibilidad de seleccionar/agregar varios géneros
+- [x] Posibilidad de seleccionar/agregar varias plataformas
+- [x] Botón/Opción para crear un nuevo videojuego
 
 > Es requisito que el formulario de creación esté validado con JavaScript y no sólo con validaciones HTML. Pueden agregar las validaciones que consideren. Por ejemplo: Que el nombre del juego no pueda contener algunos símbolos, que el rating no pueda exceder determinado valor, etc.
 
