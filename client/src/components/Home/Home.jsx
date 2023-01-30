@@ -37,7 +37,7 @@ const Home =() => {
                 videogames.length ?
                 <div>
                     {error && <Errors/>}
-                    <NavBar/>
+                    <NavBar setInput={setInput} setPage={setPage}/>
                     <Filter sort={sort} setSort={setSort} setInput={setInput} setPage={setPage} />
                     <div className={s.gridContainer}>
                         <div className={s.grid}>

@@ -4,7 +4,7 @@ import {useDispatch} from "react-redux";
 import {getVideogamesByName} from "../../redux/actions";
 
 
-const Search = () => {
+const Search = ({setInput, setPage}) => {
     const dispatch = useDispatch();
     const [search, setSearch] = useState("");
 
@@ -12,10 +12,12 @@ const Search = () => {
         setSearch(e.target.value);
     };
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         if (search.length) {
-            dispatch(getVideogamesByName(search));
+            await dispatch(getVideogamesByName(search));
             setSearch("");
+            setInput(1);
+            setPage(1);
         }
     };
 
