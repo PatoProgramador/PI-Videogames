@@ -1,0 +1,41 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 30%;
+    gap: 0.5em;
+    background: white;
+    color: rgb(208, 207, 207);
+    border-radius: 0.4rem / 0.4rem;
+    padding: 16px;
+    margin-top: 40%;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.filters{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: bolder;
+}
+
+@media (max-width: 600px) {
+    .container {
+          position: relative;
+          top: 70;
+          margin-top: 0;
+  
+    }
+    .filters{
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+  }

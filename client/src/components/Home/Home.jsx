@@ -38,8 +38,12 @@ const Home =() => {
                 <div>
                     {error && <Errors/>}
                     <NavBar setInput={setInput} setPage={setPage}/>
-                    <Filter sort={sort} setSort={setSort} setInput={setInput} setPage={setPage} />
                     <div className={s.gridContainer}>
+                        <div className={s.sidebar}>
+                            <div className={s.siderbardColumn}>
+                                <Filter sort={sort} setSort={setSort} setInput={setInput} setPage={setPage} />
+                            </div>
+                        </div>
                         <div className={s.grid}>
                             {
                                 videogames?.slice((page - 1) * perPage, (page-1) * perPage + perPage)
@@ -58,8 +62,10 @@ const Home =() => {
                                     )
                                 })
                             }
+                            <div className={s.paginado}>
+                                <Paginacion input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>
+                            </div>
                         </div>
-                        <Paginacion input={input} setInput={setInput} page={page} setPage={setPage} max={max}/>
                     </div> 
                 </div> : <Loading/>
             } 

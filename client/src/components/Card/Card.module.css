@@ -1,15 +1,33 @@
 .container{
-    width: 340px;
-    padding: 1.2rem 0;
+    width: 100%;
+    max-width: 1200px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: center;
+    margin: auto
+}
+
+.card {
+    width: 330px;
+    height: 430px;
+    border-radius: 8px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0);
+    overflow: hidden;
+    margin: 20px;
+    background-color: bisque;
+    text-align: center;
+    transition: all 0.25s;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0);
 }
 
 .img {
-    border-radius: 8px;
-    width: 310px;
-    height: 187px;
-    object-fit: cover;
+    width: 330px;
+    height: 220px;
 }

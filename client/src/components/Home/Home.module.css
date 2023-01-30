@@ -1,15 +1,37 @@
+body{
+    background-image: url("../../assets/sunset-pixel-art-landscape-scenery-digital-art-uhdpaper.com-4K-4.2066.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
 .gridContainer {
+    display: grid;
+    outline: 6px solid black;
+    gap: 20px;
+    grid-template-columns: 1fr 6fr;
+}
+
+.navBar{
+    grid-column-start: 1;
+    grid-column-end: 4;
+}
+
+.sidebar{
     display: flex;
     flex-direction: column;
-    align-content: space-around;
-    justify-content: center;
-    padding-top: 4%;
-    gap: 20px;
+    align-items: center;
+    outline: 6px solid black;
 }
 
 .grid {
-    padding: 1.6rem 0.5rem 1.25rem 0.5rem;
     display: grid;
+    outline: 6px solid black;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    gap: 20px;
+}
+
+.paginado{
+    grid-column-start: 1;
+    grid-column-end: 4;
 }
