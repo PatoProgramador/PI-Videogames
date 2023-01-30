@@ -1,9 +1,8 @@
-import axios from "axios";
+import s from "./Form.module.css";
 import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux"
 import {Link} from 'react-router-dom'
-import { getGenres, getPlatforms} from "../../redux/actions";
-import Card from "../Card/Card";
+import { createVideogame, getGenres, getPlatforms} from "../../redux/actions";
 
 const Form = () => {
     const dispatch = useDispatch();
@@ -17,7 +16,8 @@ const Form = () => {
         dispatch(getGenres())
     }, [dispatch])
 
-    //formulario
+    //formulario y errores
+    const [error, setError] = useState({});
     const [game, setGame] = useState({
         name: "",
         released: "",
@@ -33,6 +33,10 @@ const Form = () => {
             ...game,
             [e.target.name]: e.target.value,
         })
+        setError(validate({
+            ...game,
+            [e.target.name]: e.target.value,
+        }))
     };
 
     //añadir y eliminar platforms
@@ -70,59 +74,91 @@ const Form = () => {
         });
     };
 
-    const handleCreate = () => {
-        axios.post("")
+    const validate = (form) =>{
+        const errors = {};
+        if(game.name.length < 2) {errors.name = "Name must have at least 2 characters"};
+        if(game.description.length < 15) {errors.description = "Description must have at least 15 characters"};
+        if(game.rating < 0) {errors.rating = "Rating must be greater than 0"}
+        if(isNaN(game.rating)) {errors.rating = "Rating must be a number"}
+        if(game.genres.length < 1) {errors.genres = "The game must have at least one gender"}
+        if(game.platforms.length < 1) {errors.platforms = "the game must have at least one platform"}
+        return errors;
+    };
+
+    //Logica para postear el game
+    // let post = await axios.post("http://localhost:3001/videogames", game)
+    const handleCreate = async(e)  => {
+        e.preventDefault()
+        setError(validate(game))
+        if(Object.values(error).length>0) {
+            return alert("Please verify that all fields are filled in correctly");
+        } else {
+            dispatch(createVideogame(game));
+            alert("Game Created!");
+            window.location.reload();
+        }
     };
 
     return (
-        <div>
+        <div className={s.container}>
             <Link to="/videogames">
                 <button>{"<"}</button>
             </Link>
-            <h2>Create Videogame</h2>
-            <form action="">
-                <label>Name</label>
-                <input 
-                    type="text" 
-                    name="name"
-                    onChange={handleInput}
-                    autoComplete="off"
-                />
-                <label>Desciption</label>
-                <input 
-                    type="text"
-                    name="description"
-                    onChange={handleInput}
-                />
-                <label>Released</label>
-                <input 
-                    type="text"
-                    name="released"
-                    onChange={handleInput}
-                />
-                <label>Rating</label>
-                <input 
-                    type="text"
-                    name="rating"
-                    onChange={handleInput}
-                />
-                <label>Image</label>
-                <input 
-                    type="text" 
-                    name="img"
-                    onChange={handleInput}
-                />
-                <select name="platforms" onChange={handleSelectPlatform}>
-                    <option value="platforms">Platforms</option>
-                    {platform?.map((pla, i) => {return(<option key={i}>{pla.name}</option>)})}
-                </select>
-                <select name="genres" onChange={handleSelectGenre}>
-                    <option value="genres">genres</option>
-                    {genres?.map((genre, i) => {return(<option key={i}>{genre.name}</option>)})}
-                </select>
-                <button type="submit">CREATE</button>
-            </form>
-            <div >
+            <div className={s.formC}>
+                <form className={s.form} onSubmit={handleCreate}>
+                    <h2>Create Videogame</h2>
+                    <label>Name</label>
+                    <input 
+                        type="text" 
+                        name="name"
+                        onChange={handleInput}
+                        autoComplete="off"
+                    /> 
+                    {error.name && <span>{error.name}</span>}
+                    <label>Desciption</label>
+                    <input 
+                        type="text"
+                        name="description"
+                        onChange={handleInput}
+                        autoComplete="off"
+                    />
+                    {error.description && <span>{error.description}</span>}
+                    <label>Released</label>
+                    <input 
+                        type="text"
+                        name="released"
+                        onChange={handleInput}
+                        autoComplete="off"
+                    />
+                    <label>Rating</label>
+                    <input 
+                        type="text"
+                        name="rating"
+                        onChange={handleInput}
+                        autoComplete="off"
+                    />
+                    {error.rating && <span>{error.rating}</span>}
+                    <label>Image</label>
+                    <input 
+                        type="text" 
+                        name="img"
+                        onChange={handleInput}
+                        autoComplete="off"
+                    />
+                    <select name="platforms" onChange={handleSelectPlatform}>
+                        <option value="platforms">Platforms</option>
+                        {platform?.map((pla, i) => {return(<option key={i}>{pla.name}</option>)})}
+                    </select>
+                    {error.platforms &&<span>{error.platforms}</span>}
+                    <select name="genres" onChange={handleSelectGenre}>
+                        <option value="genres">genres</option>
+                        {genres?.map((genre, i) => {return(<option key={i}>{genre.name}</option>)})}
+                    </select>
+                    {error.genres &&<span>{error.genres}</span>}
+                    <button type="submit">CREATE</button>
+                </form>
+            </div>
+            <div className={s.card} >
                 <h1>Your Game</h1>
                 <img  src={game.img} alt="Here is the image D:"/>
                 <h3>Name: {game.name}</h3>

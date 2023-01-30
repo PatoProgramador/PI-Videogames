@@ -10,6 +10,7 @@ export const ERROR = "ERROR";
 export const CLOSE_ERROR = "CLOSE_ERROR";
 export const RESET_FILTERS = "RESET_FILTERS";
 export const GET_PLATFORMS = "GET_PLATFORMS";
+export const CREATE_GAME = "CREATE_GAME";
 
 export const getVideogames = () => async dispatch => {
     try {
@@ -58,6 +59,11 @@ export const getByGenre = (genre) => dispatch => {
 
 export const getDbGames = (value) => dispatch => {
     return dispatch({type: GET_BY_DB, payload: value });
+};
+
+export const createVideogame = (game) => async dispatch => {
+    const newGame = await axios.post("http://localhost:3001/videogames", game);
+    return dispatch({type: CREATE_GAME, payload: newGame.data})
 };
 
 export const resetFilters = () => dispatch => {

@@ -8,7 +8,8 @@ import { GET_VIDEOGAMES,
          GET_BY_GENRE,
          GET_BY_DB,
          RESET_FILTERS,
-         GET_PLATFORMS
+         GET_PLATFORMS,
+         CREATE_GAME
         } from "./actions";
 
 const initialState = {
@@ -17,6 +18,7 @@ const initialState = {
     genres: [],
     platforms: [],
     error: false,
+    errormsg: {}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -82,6 +84,18 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 sortGames: dbOApi
             };
+        case CREATE_GAME:
+            if(action.payload.status === 200) {
+                return {
+                    ...state,
+                    errormsg: {}
+                } 
+            } else {
+                return {
+                    ...state,
+                    errormsg: action.payload
+                }
+            }
         case SEARCH:
             return {
                 ...state,
@@ -95,7 +109,7 @@ const rootReducer = (state = initialState, action) => {
         case CLOSE_ERROR:
             return {
                 ...state,
-                error: state.error === false ? false : false
+                error: state.error === false ? false : false,
             }
         case ERROR:
             return {

@@ -1,5 +1,5 @@
 import s from "./Error.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { closeError } from "../../redux/actions";
 
 const Errors = () => {
