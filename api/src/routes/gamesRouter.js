@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
             },
         });
         newGame.addGenre(genresdb);
-        res.status(200).send("Game created ;)");
+        res.status(200).json(newGame);
     } catch(error) {
         res.status(400).json({error: error.message});
     }

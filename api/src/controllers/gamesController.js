@@ -170,7 +170,7 @@ const createGame = async (name, description, released, rating, platforms, img) =
                 img,
             }
         });
-        if(!boolean) throw new Error(error);
+        if(!boolean) throw new Error("The game already exists");
 
         return game;
     } catch (error) {
