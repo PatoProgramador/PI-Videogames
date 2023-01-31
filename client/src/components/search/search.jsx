@@ -29,7 +29,7 @@ const Search = ({setInput, setPage}) => {
              value={search}
              placeholder="VideoGame..."
              onChange={(e) => handleSearch(e)}
-             autoComplete="on" />
+             autoComplete="off" />
             <button type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
         </>
     )
