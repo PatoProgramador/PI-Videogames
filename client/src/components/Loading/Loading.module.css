@@ -1,14 +1,13 @@
-.loaderc {
-    width: 100vw;
-    height: 100vh;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+.loaderdiv{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     user-select: none;
     z-index: 200;
 }
 
 .gif{
-    width: 250px;
+    width: 280px;
 }
