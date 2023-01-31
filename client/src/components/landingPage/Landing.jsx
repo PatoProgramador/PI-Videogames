@@ -5,9 +5,8 @@ const Landing =() => {
     return (
         <div className={s.container} >
             <div className={s.landing}>
-                <h1>landing page</h1>
                 <Link to="/videogames">
-                    <button>PRESS START</button>
+                    <button className={s.button}>PRESS START</button>
                 </Link>
             </div>
         </div>
