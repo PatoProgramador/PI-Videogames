@@ -30,7 +30,7 @@ const Search = ({setInput, setPage}) => {
                 id ="search" 
                 type="search" 
                 value={search}
-                placeholder="VideoGame..."
+                placeholder="videoGame..."
                 onChange={(e) => handleSearch(e)}
                 autoComplete="off" />
                 <button type="submit"><img src={searchp} alt="search"/></button>

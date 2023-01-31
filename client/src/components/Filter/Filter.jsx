@@ -32,8 +32,8 @@ const Filter = ({sort, setSort, setInput, setPage}) => {
         setPage(1)
     };
 
-    const handleReset = () => {
-        dispatch(getVideogames())
+    const handleReset = async() => {
+        await dispatch(getVideogames())
         setInput(1)
         setPage(1)
     }

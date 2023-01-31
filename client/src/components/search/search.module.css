@@ -4,7 +4,7 @@
     background: rgb(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
-    border-radius: 60px;
+    border-radius: 20px;
     padding: 10px 20px;
 }
 
@@ -15,7 +15,7 @@
     outline: none;
     padding: 24px 20px;
     font-size: 20px;
-    color: #cac7ff;
+    color: #2b2828;
 }
 
 .searchbar button img{
@@ -27,6 +27,6 @@
     border-radius: 50%;
     width: 45px;
     height: 45px;
-    background: #58629b;
+    background: #525358;
     cursor: pointer;
 }

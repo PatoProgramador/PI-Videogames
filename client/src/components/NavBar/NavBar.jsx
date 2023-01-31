@@ -7,8 +7,8 @@ import {useDispatch} from "react-redux";
 
 const NavBar =({setInput, setPage}) => {
     const dispatch = useDispatch();
-    const handleHome = () => {
-        dispatch(getVideogames())
+    const handleHome = async() => {
+        await dispatch(getVideogames())
         setInput(1)
         setPage(1)
     }
