@@ -1,6 +1,6 @@
 .searchbar{
-    width: 100%;
-    max-width: 700px;
+    width: 500px;
+    height: 35px;
     background: rgb(255, 255, 255, 0.2);
     display: flex;
     align-items: center;
@@ -20,14 +20,13 @@
 
 .searchbar button img{
     width: 25px;
-
 }
 
 .searchbar button {
     border:0;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     background: #58629b;
     cursor: pointer;
 }
