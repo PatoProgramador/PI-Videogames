@@ -28,7 +28,7 @@
 
 .title{
     color:rgba(0,0,0,.2);
-    text-shadow: 1px 1px rgba(255,255,255,.15);  
+    text-shadow: 1px 1px rgba(117, 113, 113, 0.15);  
     font-family: 'Open Sans', sans-serif;
     font-weight:800;
     text-transform:uppercase;
@@ -41,7 +41,7 @@
 
 .titl{
     margin: 5px;
-    color:rgba(0,0,0,.2);
+    color:rgba(0,0,0,0.2);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
     font-family: 'Open Sans', sans-serif;
     font-weight:800;

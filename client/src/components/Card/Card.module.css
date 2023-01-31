@@ -1,3 +1,17 @@
+:root{
+    --button-height: 3rem;
+    --color-text: rgba(0,0,0,.25);
+    --color-text-shadow: rgba(255,255,255,.15);
+    --color-page-bg:#B9B5AA;
+    --color-bg:#899095;
+    --color-bg-light:#969DA3;
+    --color-bg-dark: #7D878F;
+    --color-overlay-light: rgba(255,255,255,.2);
+    --color-overlay-medium: rgba(0,0,0,.1);
+    --color-overlay-dark: rgba(0,0,0,.2);
+    --color-tab-focus: rgba(255,255,255,.15);
+  }
+
 .container{
     width: 100%;
     max-width: 1200px;
@@ -18,8 +32,7 @@
     box-shadow: 0 2px 2px rgba(43, 42, 42, 0);
     overflow: hidden;
     margin: 20px;
-    background-color: rgb(0, 0, 0);
-    background: linear-gradient(rgb(19, 111, 187), rgb(7, 1, 19));
+    background:var(--color-bg);
     text-align: center;
     transition: all 0.25s;
     gap: 5px
@@ -39,17 +52,25 @@
 .name{
     margin: 5px;
     height: fit-content;
-    color: rgb(236, 225, 225);
+    color:rgba(0, 0, 0, 0.39);
+    text-shadow: 1px 1px rgba(255,255,255,.15);  
+    font-family: 'Open Sans', sans-serif;
+    font-weight:800;
 }
 
 .rate{
     margin: 0px;
-    font-family: fantasy;
     font-size: 25px;
-    color: rgb(241, 230, 132);
+    color:rgba(216, 209, 76, 0.534); 
+    font-family: 'Open Sans', sans-serif;
+    font-weight:800;
+    
 }
 
 .genre{
     margin: 10px;
-    color: rgb(134, 133, 131);
+    color:rgba(0, 0, 0, 0.308);
+    text-shadow: 1px 1px rgba(255,255,255,.15);  
+    font-family: 'Open Sans', sans-serif;
+    font-weight:800;
 }
