@@ -2,6 +2,7 @@ import s from "./search.module.css"
 import {useState} from "react";
 import {useDispatch} from "react-redux";
 import {getVideogamesByName} from "../../redux/actions";
+import searchp from "../../assets/search.png"
 
 
 const Search = ({setInput, setPage}) => {
@@ -12,7 +13,8 @@ const Search = ({setInput, setPage}) => {
         setSearch(e.target.value);
     };
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         if (search.length) {
             await dispatch(getVideogamesByName(search));
             setSearch("");
@@ -22,16 +24,18 @@ const Search = ({setInput, setPage}) => {
     };
 
     return(
-        <>
-            <input 
-             id ="search" 
-             type="search" 
-             value={search}
-             placeholder="VideoGame..."
-             onChange={(e) => handleSearch(e)}
-             autoComplete="off" />
-            <button type="submit" onClick={(e) => handleSubmit(e)}>Search</button>
-        </>
+        <div>
+            <form className={s.searchbar} onSubmit={handleSubmit}>
+                <input 
+                id ="search" 
+                type="search" 
+                value={search}
+                placeholder="VideoGame..."
+                onChange={(e) => handleSearch(e)}
+                autoComplete="off" />
+                <button type="submit"><img src={searchp}/></button>
+            </form>
+        </div>
     )
 };
 
