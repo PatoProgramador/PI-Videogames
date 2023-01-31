@@ -2,7 +2,7 @@ import loader from "../../assets/loader.gif"
 
 const Loading = () => {
     return (
-        <img src={loader} alt="" />
+        <img src={loader}/>
     )
 }
 
