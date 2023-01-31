@@ -1,0 +1,14 @@
+.loaderc {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    z-index: 200;
+}
+
+.gif{
+    width: 250px;
+}
