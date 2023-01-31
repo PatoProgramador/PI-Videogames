@@ -35,7 +35,7 @@ const rootReducer = (state = initialState, action) => {
                               ? state.sortGames.sort((a, b) => b.rating - a.rating)
                               : action.payload === "lower"
                               ? state.sortGames.sort((a,b) => a.rating - b.rating)
-                              : [...state.videoGames];
+                              : [...state.sortGames];
             return {
                 ...state,
                 sortGames: gamesSorted
@@ -51,7 +51,7 @@ const rootReducer = (state = initialState, action) => {
                                                                 if(a.name < b.name) return 1;
                                                                 return 0;
                                                                })
-                              : [...state.videoGames];
+                              : [...state.sortGames];
             return {
                 ...state,
                 sortGames: sortByAlp
@@ -102,9 +102,11 @@ const rootReducer = (state = initialState, action) => {
                 sortGames: action.payload,
             };
         case RESET_FILTERS:
+            const reset = state.videoGames;
             return {
                 ...state,
-                sortGames: state.videoGames
+                videoGames: state.videoGames,
+                sortGames: reset
             };
         case CLOSE_ERROR:
             return {
