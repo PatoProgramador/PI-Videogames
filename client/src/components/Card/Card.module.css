@@ -7,27 +7,49 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin: auto
+    margin: auto;
 }
 
 .card {
-    width: 330px;
-    height: 430px;
-    border-radius: 8px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0);
+    display: grid;
+    width: 430px;
+    height: 420px;
+    border-radius: 15px;
+    box-shadow: 0 2px 2px rgba(43, 42, 42, 0);
     overflow: hidden;
     margin: 20px;
-    background-color: bisque;
+    background-color: rgb(0, 0, 0);
     text-align: center;
     transition: all 0.25s;
+    gap: 5px
 }
 
 .card:hover {
     transform: translateY(-15px);
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.25);
 }
 
 .img {
-    width: 330px;
+    width: 430px;
     height: 220px;
+    margin: 0px;
+}
+
+.name{
+    margin: 5px;
+    height: fit-content;
+    color: rgb(236, 225, 225);
+    font-style: ;
+}
+
+.rate{
+    margin: 0px;
+    font-family: fantasy;
+    font-size: 25px;
+    color: rgb(241, 230, 132);
+}
+
+.genre{
+    margin: 10px;
+    color: rgb(134, 133, 131);
 }

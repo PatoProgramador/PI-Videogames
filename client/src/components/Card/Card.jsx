@@ -4,16 +4,16 @@ import { Link } from 'react-router-dom';
 const Card = ({name, img, genres, id, rate}) => {
     return(
         <div className={s.container}>
-            <Link to={`/detail/${id}`}>
+            <Link style={{ textDecoration: 'none' }} to={`/detail/${id}`}>
                 <div className={s.card}>
                     <img className={s.img} src={img} alt={name} />
-                    <h3>{name}</h3>
-                    <h1>{rate}</h1>
-                    <div>
+                    <h2 className={s.name}>{name}</h2>
+                    <span className={s.rate}>⭐{rate}</span>
+                    <div className={s.genrebox}>
                         {
-                            genres.length > 5 ?
-                            genres?.slice(0, 5).map((genre) => (<div><span>{genre}</span></div>))
-                            : genres?.map((genre) => (<div><span>{genre}</span></div>))
+                            genres.length > 7 ?
+                            genres?.slice(0, 7).map((genre) => (<div><span className={s.genre}>{genre}</span></div>))
+                            : genres?.map((genre) => (<div><span className={s.genre}>{genre}</span></div>))
                         }
                     </div>
                 </div>
