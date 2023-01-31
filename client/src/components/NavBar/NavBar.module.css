@@ -1,5 +1,54 @@
-.container {
+/* .container {
     display: flex;
     align-items: center;
-    
+    justify-content: space-between;
+    background-color: rgb(0, 0, 0);
+    height: 85px;
+    padding: 5px 10%;
+} */
+
+.logo {
+    height: 100px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.logo:hover {
+    transform: scale(1.2);
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 20px;
+    background-color: rgb(0, 0, 0);
+    background: linear-gradient(rgb(48, 11, 117), rgb(7, 1, 19));
+}
+
+.logocont{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.logotext{
+    font-size: 30px;
+    color: aliceblue;
+}
+
+.logotext:hover{
+    transform: scale(1.1);
+    color: rgb(141, 32, 32);
+}
+
+.create {
+    font-size: 30px;
+    color: aliceblue;
+}
+
+.create:hover{
+    transform: scale(1.1);
+    color: rgb(141, 32, 32);
 }
