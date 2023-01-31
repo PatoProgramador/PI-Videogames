@@ -2,13 +2,13 @@ import s from "./NavBar.module.css"
 import {Link} from "react-router-dom";
 import Search from "../search/search";
 import icon from "../../assets/favicon.ico"
-import {resetFilters} from "../../redux/actions"
+import {getVideogames} from "../../redux/actions"
 import {useDispatch} from "react-redux";
 
 const NavBar =({setInput, setPage}) => {
     const dispatch = useDispatch();
     const handleHome = () => {
-        dispatch(resetFilters())
+        dispatch(getVideogames())
         setInput(1)
         setPage(1)
     }
@@ -24,7 +24,7 @@ const NavBar =({setInput, setPage}) => {
                 </div>
                 <div>
                     <Link style={{ textDecoration: 'none' }} to="/form">
-                        <span className={s.create}>Create Game</span>
+                        <button className={s.create}>Create Game</button>
                     </Link>
                 </div>
             </nav>

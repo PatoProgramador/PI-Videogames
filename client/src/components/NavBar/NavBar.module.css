@@ -1,14 +1,19 @@
-/* .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: rgb(0, 0, 0);
-    height: 85px;
-    padding: 5px 10%;
-} */
-
+:root{
+    --button-height: 3rem;
+    --color-text: rgba(0,0,0,.25);
+    --color-text-shadow: rgba(255,255,255,.15);
+    --color-page-bg:#B9B5AA;
+    --color-bg:#899095;
+    --color-bg-light:#969DA3;
+    --color-bg-dark: #7D878F;
+    --color-overlay-light: rgba(255,255,255,.2);
+    --color-overlay-medium: rgba(0,0,0,.1);
+    --color-overlay-dark: rgba(0,0,0,.2);
+    --color-tab-focus: rgba(255,255,255,.15);
+  }
+  
 .logo {
-    height: 100px;
+    height: 110px;
     width: auto;
     transition: all 0.3s;
 }
@@ -23,8 +28,8 @@
     align-items: center;
     justify-content: space-around;
     padding: 0 20px;
-    background-color: rgb(0, 0, 0);
-    background: linear-gradient(rgb(1, 46, 97), rgb(7, 1, 19));
+    background:var(--color-bg);
+    box-shadow:-1px -1px 1px var(--color-bg-light);
 }
 
 .logocont{
@@ -33,22 +38,39 @@
     align-items: center;
 }
 
-.logotext{
-    font-size: 30px;
-    color: aliceblue;
-}
-
-.logotext:hover{
-    transform: scale(1.1);
-    color: rgb(141, 32, 32);
-}
-
 .create {
-    font-size: 30px;
-    color: aliceblue;
+    width: 280px;
+    appearance:none;
+    box-sizing:border-box;
+    font-size:calc( var(--button-height) / 3 );
+    font-family: 'Open Sans', sans-serif;
+    background: var(--color-bg);
+    height:var(--button-height);
+    min-width:var(--button-height);
+    border-radius:calc( var(--button-height) / 2);
+    border:0;
+    font-weight:800;
+    text-transform:uppercase;
+    color:var(--color-text);
+    text-shadow: 1px 1px var(--color-text-shadow);
+    cursor:pointer;
+    letter-spacing:.1em;
+    transition: all 200ms ease;
+    box-shadow:
+      -1px  -1px 1px var(--color-bg),
+      0 0 0 4px var(--color-overlay-medium), 
+      1px  1px 1px var(--color-bg-dark), 
+      inset .0 .0 .0 var(--color-overlay-dark),    
+      inset .5rem .5rem .25rem var(--color-bg-light) 
 }
 
-.create:hover{
-    transform: scale(1.1);
-    color: rgb(141, 32, 32);
-}
+.create:focus{
+    outline:none;
+    box-shadow:
+      -1px -1px 1px var(--color-bg-dark), 
+      0 0 0 4px var(--color-tab-focus), 
+      1px  1px 1px var(--color-bg-dark),
+      inset 0 0 0 var(--color-overlay-dark), 
+      inset .5rem .5rem .25rem var(--color-bg-light), 
+      ;
+  }
