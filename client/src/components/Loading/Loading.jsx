@@ -4,7 +4,7 @@ import loader from "../../assets/loader.gif"
 const Loading = () => {
     return (
         <div className={s.loaderc}>
-            <img className={s.gif} src={loader}/>
+            <img className={s.gif} src={loader} alt="loader"/>
         </div>
     )
 }

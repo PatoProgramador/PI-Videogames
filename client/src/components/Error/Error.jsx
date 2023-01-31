@@ -1,5 +1,5 @@
 import s from "./Error.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch} from "react-redux";
 import { closeError } from "../../redux/actions";
 import error from "../../assets/error.gif"
 
@@ -14,7 +14,7 @@ const Errors = () => {
         <div className={s.container}>
             <div className={s.errorCard}>
                 <button className={s.button} onClick={handleClick}>X</button>
-                <img  src={error}/>
+                <img  src={error} alt="error"/>
             </div>
         </div>
     )

@@ -33,7 +33,7 @@ const Search = ({setInput, setPage}) => {
                 placeholder="VideoGame..."
                 onChange={(e) => handleSearch(e)}
                 autoComplete="off" />
-                <button type="submit"><img src={searchp}/></button>
+                <button type="submit"><img src={searchp} alt="search"/></button>
             </form>
         </div>
     )

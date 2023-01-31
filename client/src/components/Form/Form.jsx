@@ -160,7 +160,7 @@ const Form = () => {
             </div>
             <div className={s.card} >
                 <h1>Your Game</h1>
-                <img  src={game.img} alt="Here is the image D:"/>
+                <img  src={game.img} alt="your game"/>
                 <h3>Name: {game.name}</h3>
                 <h1>Rating: {game.rating}</h1>
                 <h1>Platforms:</h1>
