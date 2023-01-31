@@ -14,7 +14,7 @@ export const Paginacion = ({page, setPage, input, setInput, max}) => {
     return (
         <div className={s.container}>
             <button disabled={page === 1 || page < 1} className={s.button} onClick={previousPage}>{"<"}</button>
-            <span> {input} of {Math.round(max)}</span>
+            <span className={s.text}> {input} of {Math.round(max)}</span>
             <button disabled={page === max || page > max}className={s.button} onClick={nextPage}>{">"}</button>
         </div>
     )
