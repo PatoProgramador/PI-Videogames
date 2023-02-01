@@ -18,7 +18,7 @@ const Detail = () => {
         <div className={s.container}>
             <div className={s.buttoncontainer}>
                 <Link to="/videogames">
-                    <button className={s.homeButt}>{"Return to videoGames"}</button>
+                    <button className={s.homeButt}>Return to videoGames</button>
                 </Link>
             </div>
             {
@@ -35,13 +35,18 @@ const Detail = () => {
                         <div className={s.genregrid}>
                             <h2 className={s.genretitle}>Genres:</h2>
                             { 
-                                game.genres.length > 1 ? 
+                                game.genres.length === 2 ? 
                                     game.genres?.map((genre) => {
                                         return (
-                                            <h4 className={s.genre}>{genre}</h4>
+                                            <h4 className={s.dupli}>{genre}</h4>
                                         )
                                     })
-                                : <h4 className={s.unique}>{game.genres}</h4>
+                                : game.genres.length === 1 ?  <h4 className={s.unique}>{game.genres}</h4>
+                                : game.genres?.map((genre) => {
+                                    return (
+                                        <h4 className={s.genre}>{genre}</h4>
+                                    )
+                                } )
                             }
                         </div>
                         <div>

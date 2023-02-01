@@ -80,17 +80,16 @@ const Form = () => {
         if(game.description.length < 15) {errors.description = "Description must have at least 15 characters"};
         if(game.rating < 0) {errors.rating = "Rating must be greater than 0"}
         if(isNaN(game.rating)) {errors.rating = "Rating must be a number"}
-        if(game.genres.length < 1) {errors.genres = "The game must have at least one gender"}
-        if(game.platforms.length < 1) {errors.platforms = "the game must have at least one platform"}
+        if(game.genres.length < 2) {errors.genres = "The game must have at least one gender"}
+        if(game.platforms.length < 2) {errors.platforms = "the game must have at least one platform"}
         return errors;
     };
 
     //Logica para postear el game
-    // let post = await axios.post("http://localhost:3001/videogames", game)
     const handleCreate = async(e)  => {
         e.preventDefault()
         setError(validate(game))
-        if(Object.values(error).length>0) {
+        if(Object.values(error).length >0) {
             return alert("Please verify that all fields are filled in correctly");
         } else {
             dispatch(createVideogame(game));
@@ -101,21 +100,23 @@ const Form = () => {
 
     return (
         <div className={s.container}>
-            <Link to="/videogames">
-                <button>{"<"}</button>
-            </Link>
+            <div className={s.buttonH}>
+                <Link to="/videogames">
+                    <button className={s.homeb}>Return to videoGames</button>
+                </Link>
+            </div>
             <div className={s.formC}>
                 <form className={s.form} onSubmit={handleCreate}>
-                    <h2>Create Videogame</h2>
-                    <label>Name</label>
+                    <h2 className={s.name}>Create Videogame</h2> 
+                    <label><span className={s.title}>Name: </span></label>
                     <input 
                         type="text" 
                         name="name"
                         onChange={handleInput}
                         autoComplete="off"
-                    /> 
-                    {error.name && <span>{error.name}</span>}
-                    <label>Desciption</label>
+                        />
+                    {error.name && <span className={s.error}>{error.name}</span>}
+                    <label><span className={s.title}>Description: </span></label>
                     <input 
                         type="text"
                         name="description"
@@ -123,14 +124,14 @@ const Form = () => {
                         autoComplete="off"
                     />
                     {error.description && <span>{error.description}</span>}
-                    <label>Released</label>
+                    <label><span className={s.title}>Released: </span></label>
                     <input 
                         type="text"
                         name="released"
                         onChange={handleInput}
                         autoComplete="off"
                     />
-                    <label>Rating</label>
+                    <label><span className={s.title}>Rating: </span></label>
                     <input 
                         type="text"
                         name="rating"
@@ -138,7 +139,7 @@ const Form = () => {
                         autoComplete="off"
                     />
                     {error.rating && <span>{error.rating}</span>}
-                    <label>Image</label>
+                    <label><span className={s.title}>Image: </span></label>
                     <input 
                         type="text" 
                         name="img"
@@ -150,41 +151,31 @@ const Form = () => {
                         {platform?.map((pla, i) => {return(<option key={i}>{pla.name}</option>)})}
                     </select>
                     {error.platforms &&<span>{error.platforms}</span>}
+                    <div>
+                        {
+                            game.platforms?.map((plat, index) => {
+                                return(
+                                    <span key={index} >{plat}<button value={plat} onClick={handleDeletePlatform} >X</button></span>
+                                )
+                            })
+                        }
+                    </div>
                     <select name="genres" onChange={handleSelectGenre}>
                         <option value="genres">genres</option>
                         {genres?.map((genre, i) => {return(<option key={i}>{genre.name}</option>)})}
                     </select>
                     {error.genres &&<span>{error.genres}</span>}
-                    <button type="submit">CREATE</button>
+                    <div>
+                        {
+                            game.genres?.map((genre, index) => {
+                                return(
+                                    <span key={index} >{genre}<button value={genre} onClick={handleDeleteGenre} >X</button></span>
+                                )
+                            })
+                        }
+                    </div>
+                    <button className={s.buttonH} type="submit">CREATE</button>
                 </form>
-            </div>
-            <div className={s.card} >
-                <h1>Your Game</h1>
-                <img  src={game.img} alt="your game"/>
-                <h3>Name: {game.name}</h3>
-                <h1>Rating: {game.rating}</h1>
-                <h1>Platforms:</h1>
-                <div>
-                    {
-                        game.platforms?.map((plat, index) => {
-                            return(
-                                <span key={index} >{plat}<button value={plat} onClick={handleDeletePlatform} >X</button></span>
-                            )
-                        })
-                    }
-                </div>
-                <h1>Genres: </h1>
-                <div>
-                    {
-                        game.genres?.map((genre, index) => {
-                            return(
-                                <span key={index} >{genre}<button value={genre} onClick={handleDeleteGenre} >X</button></span>
-                            )
-                        })
-                    }
-                </div>
-                <h1>Description:</h1>
-                <h3>{game.description}</h3>
             </div>
         </div>
     )
