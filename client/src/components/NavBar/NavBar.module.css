@@ -43,7 +43,7 @@
     appearance:none;
     box-sizing:border-box;
     font-size:calc( var(--button-height) / 3 );
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     background: var(--color-page-bg);
     height:var(--button-height);
     min-width:var(--button-height);

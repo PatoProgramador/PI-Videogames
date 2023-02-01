@@ -54,7 +54,7 @@
     height: fit-content;
     color:rgba(0, 0, 0, 0.39);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
 }
 
@@ -62,7 +62,7 @@
     margin: 0px;
     font-size: 25px;
     color:rgba(216, 209, 76, 0.534); 
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     
 }
@@ -71,6 +71,6 @@
     margin: 10px;
     color:rgba(0, 0, 0, 0.308);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
 }

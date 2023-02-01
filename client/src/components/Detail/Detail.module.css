@@ -49,7 +49,7 @@
 .plattitle{
     color:rgba(0, 0, 0, 0.534);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     font-size:2rem;
@@ -101,7 +101,7 @@
 .genretitle{
     color:rgba(0, 0, 0, 0.534);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     font-size:1.5rem;
@@ -114,7 +114,7 @@
 .title{
     color:rgba(0, 0, 0, 0.534);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     margin-bottom:1rem;
@@ -125,7 +125,7 @@
 .rate{
     color:rgba(114, 99, 12, 0.61);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     margin-bottom:1rem;
@@ -135,7 +135,7 @@
 .genre{
     color:rgba(0, 0, 0, 0.247);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     font-size:1.5rem;
@@ -145,7 +145,7 @@
 .rele{
     color:rgba(0, 0, 0, 0.534);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     font-size:1.5rem;
@@ -156,7 +156,7 @@
 .released{
     color:rgba(0, 0, 0, 0.247);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     font-size:2.2rem;
@@ -166,7 +166,7 @@
 .description{
     color:rgba(0, 0, 0, 0.363);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     font-size:1rem;
@@ -176,7 +176,7 @@
 .unique{
     color:rgba(0, 0, 0, 0.247);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     font-size:1.5rem;
@@ -188,7 +188,7 @@
 .dupli{
     color:rgba(0, 0, 0, 0.247);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     font-size:1.5rem;
@@ -209,7 +209,7 @@
     appearance:none;
     box-sizing:border-box;
     font-size:calc( var(--button-height) / 3 );
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     background: var(--color-bg);
     height:var(--button-height);
     min-width:var(--button-height);

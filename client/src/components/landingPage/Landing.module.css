@@ -24,7 +24,7 @@
 .title {
     color:rgba(202, 24, 24, 0.8);
     text-shadow: 1px 1px rgba(3, 3, 3, 0.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     margin-bottom:1rem;
@@ -39,7 +39,7 @@
     appearance:none;
     box-sizing:border-box;
     font-size:calc( var(--button-height) / 3 );
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     background: var(--color-bg);
     height:var(--button-height);
     min-width:var(--button-height);

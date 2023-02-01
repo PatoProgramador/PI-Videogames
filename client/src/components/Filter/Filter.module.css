@@ -1,17 +1,3 @@
-:root{
-    --button-height: 3rem;
-    --color-text: rgba(0,0,0,.25);
-    --color-text-shadow: rgba(255,255,255,.15);
-    --color-page-bg:#B9B5AA;
-    --color-bg:#899095;
-    --color-bg-light:#969DA3;
-    --color-bg-dark: #7D878F;
-    --color-overlay-light: rgba(255,255,255,.2);
-    --color-overlay-medium: rgba(0,0,0,.1);
-    --color-overlay-dark: rgba(0,0,0,.2);
-    --color-tab-focus: rgba(255,255,255,.15);
-  }
-  
 .container{
     display: flex;
     flex-direction: column;
@@ -29,7 +15,7 @@
 .title{
     color:rgba(0,0,0,.2);
     text-shadow: 1px 1px rgba(117, 113, 113, 0.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     margin-bottom:1rem;
@@ -43,7 +29,7 @@
     margin: 5px;
     color:rgba(0,0,0,0.2);
     text-shadow: 1px 1px rgba(255,255,255,.15);  
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     font-weight:800;
     text-transform:uppercase;
     margin-bottom:1rem;
@@ -84,7 +70,7 @@
     appearance:none;
     box-sizing:border-box;
     font-size:calc( var(--button-height) / 3 );
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     background: var(--color-bg);
     height:var(--button-height);
     min-width:var(--button-height);
@@ -115,7 +101,7 @@
     appearance:none;
     box-sizing:border-box;
     font-size:calc( var(--button-height) / 3 );
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     background: var(--color-bg);
     height:var(--button-height);
     min-width:var(--button-height);
@@ -147,7 +133,7 @@
     appearance:none;
     box-sizing:border-box;
     font-size:calc( var(--button-height) / 3 );
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     background: var(--color-bg);
     height:var(--button-height);
     min-width:var(--button-height);
@@ -176,7 +162,7 @@
     appearance:none;
     box-sizing:border-box;
     font-size:calc( var(--button-height) / 3 );
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     background: var(--color-bg);
     height:var(--button-height);
     min-width:var(--button-height);
@@ -255,7 +241,7 @@
 }
 
 .selectbox:before{
-    font-family: 'Open Sans', sans-serif;
+    font-family: sans-serif;
     position: absolute;
     top: 0;
     right: 0;

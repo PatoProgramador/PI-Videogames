@@ -56,13 +56,18 @@ const Detail = () => {
                         <div className={s.platgrid}>
                             <h2 className={s.plattitle}>Platforms:</h2>
                             { 
-                                game.platforms.length > 1 ? 
+                                game.platforms.length === 2 ? 
                                     game.platforms?.map((plat) => {
                                         return (
-                                            <h4 className={s.genre}>{plat}</h4>
+                                            <h4 className={s.dupli}>{plat}</h4>
                                         )
                                     })
-                                :  <h4 className={s.unique}>{game.platforms}</h4>       
+                                : game.platforms.length === 1 ? <h4 className={s.unique}>{game.platforms}</h4> 
+                                : game.platforms?.map((plat) => {
+                                    return (
+                                        <h4 className={s.genre}>{plat}</h4>
+                                    )
+                                })   
                             }
                         </div>
                         <div className={s.descrip}>
