@@ -33,7 +33,9 @@
 
 .button{
     width: 400px;
-    position:relative;
+    --color-bg:#E44E55;
+    --color-bg-light:#E47479;
+    --color-bg-dark:#D13239;
     appearance:none;
     box-sizing:border-box;
     font-size:calc( var(--button-height) / 3 );
@@ -54,8 +56,8 @@
     box-shadow:
       -1px  -1px 1px var(--color-bg), 
       0 0 0 4px var(--color-overlay-medium), 
-      1px  1px 1px var(--color-bg-dark), 
-      inset .0 .0 .0 var(--color-overlay-dark),   
+      1px  1px 1px var(--color-bg-dark),
+      inset .0 .0 .0 var(--color-overlay-dark),    
       inset .5rem .5rem .25rem var(--color-bg-light) 
 }
 
