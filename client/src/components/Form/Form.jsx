@@ -174,7 +174,7 @@ const Form = () => {
                             })
                         }
                     </div>
-                    <button className={s.buttonH} type="submit">CREATE</button>
+                    <button className={s.buttonD} type="submit">CREATE</button>
                 </form>
             </div>
         </div>

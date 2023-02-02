@@ -21,7 +21,6 @@ router.get("/", async (req,res) => {
 
 router.post("/", async (req, res) => {
     try {
-        const genresd = await getGenres();
         const { name, description, released, rating, genres, platforms, img} = req.body;
         const newGame = await createGame(name, description, released, rating, platforms, img);
         let genresdb = await Genre.findAll({
